@@ -1,2 +1,2 @@
-class MerchantsController < ApplicationController
+class Api::V1::MerchantsController < ApplicationController
 end
