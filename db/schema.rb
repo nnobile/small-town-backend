@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_035021) do
+ActiveRecord::Schema.define(version: 2021_07_07_032234) do
 
   create_table "items", force: :cascade do |t|
-    t.integer "merchant_id"
     t.string "item_name"
     t.string "item_category"
     t.text "item_description"
@@ -21,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_035021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "item_image_url"
+    t.integer "merchant_id"
+    t.index ["merchant_id"], name: "index_items_on_merchant_id"
   end
 
   create_table "merchants", force: :cascade do |t|
@@ -33,4 +34,5 @@ ActiveRecord::Schema.define(version: 2021_07_06_035021) do
     t.string "merchant_image_url"
   end
 
+  add_foreign_key "items", "merchants"
 end
