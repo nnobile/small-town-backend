@@ -1,8 +1,14 @@
 class Api::V1::MerchantsController < ApplicationController
 
     def index
+        binding.pry
         @merchants = Merchant.all
         render json: @merchants
+    end
+
+    def show
+        @merchant = Merchant.find(params[:id])
+        render json: @merchant
     end
 
     def create
@@ -12,11 +18,6 @@ class Api::V1::MerchantsController < ApplicationController
         else
             render json: {error: 'Error creating merchant'}
         end
-    end
-
-    def show
-        @merchant = Merchant.find(params[:id])
-        render json: @merchant
     end
 
     def destroy

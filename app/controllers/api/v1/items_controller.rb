@@ -1,10 +1,19 @@
 class Api::V1::ItemsController < ApplicationController
 
-before_action :set_merchant
+ before_action :set_merchant
 
     def index
-        @items = @merchant.items
+        if @merchant
+            @items = @merchant.items
+        else 
+            @items = Item.all
+        end
         render json: @items
+    end
+
+    def show
+        @item = Item.find(params[:id])
+        render json: @item
     end
 
     def create
@@ -16,10 +25,6 @@ before_action :set_merchant
         end
     end
 
-    def show
-        @item = Item.find(params[:id])
-        render json: @item
-    end
 
     # def destroy
     #     @item = Item.find(params[:id])
