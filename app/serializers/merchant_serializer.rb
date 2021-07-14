@@ -1,4 +1,4 @@
 class MerchantSerializer < ActiveModel::Serializer
-  attributes :id, :merchant_name, :merchant_location, :merchant_category, :merchant_description, :merchant_image_url
+  attributes :id, :name, :location, :category, :description, :image_url
   has_many :items
 end
