@@ -34,7 +34,7 @@ class Api::V1::ItemsController < ApplicationController
     private
 
     def set_merchant
-        @merchant = Merchant.find_by(params[:merchant_id])
+        @merchant = Merchant.find(params[:merchant_id])
     end
 
     def item_params

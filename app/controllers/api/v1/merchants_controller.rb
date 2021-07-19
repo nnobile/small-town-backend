@@ -1,7 +1,7 @@
 class Api::V1::MerchantsController < ApplicationController
 
     def index
-        binding.pry
+        # binding.pry
         @merchants = Merchant.all
         render json: @merchants
     end
