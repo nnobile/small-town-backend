@@ -41,7 +41,4 @@ class Api::V1::ItemsController < ApplicationController
         params.require(:item).permit(:name, :category, :description, :price, :image_url, :merchant_id)
     end
 
-
-
-
 end
